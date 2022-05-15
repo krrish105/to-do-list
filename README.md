@@ -26,7 +26,6 @@ Users should be able to:
 - Filter by all/active/complete todos
 - Clear all completed todos
 - Toggle light and dark mode
-- **Bonus**: Drag and drop to reorder items on the list
 
 ### Screenshot
 
@@ -47,10 +46,12 @@ Users should be able to:
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
+- [Redux](https://redux.js.org/)
 
 ## Author
 
 - Frontend Mentor - [Krrish105](https://www.frontendmentor.io/profile/Krrish105)
 - Twitter - [_karishma10](https://twitter.com/_karishma10)
-- Codepen - [Krrish105](https://codepen.io/krrish105)
+- LinkedIn - [Karishma Garg](https://www.linkedin.com/in/karishma-garg-)
+- CodePen - [Krrish105](https://codepen.io/krrish105)
 
