@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
+}
+html{
+  --bg-image: url('./images/bg-desktop-dark.jpg'); 
+  --Background-color: hsl(235, 21%, 11%); 
+  --List-bg-color: hsl(235, 24%, 19%);
+  --Footer-color: hsl(234, 11%, 52%); 
+  --List-active-color: hsl(236, 9%, 61%); 
+  --List-done-color: hsl(233, 14%, 35%);
+  --Bright-Blue: hsl(220, 98%, 61%);
+  --Box-shadow: hsl(235, 21%, 11%);
+}
+html.light{
+  --bg-image: url('./images/bg-desktop-light.jpg'); 
+  --List-bg-color: hsl(0, 0%, 98%);
+  --Background-color: hsl(236, 33%, 92%);  
+  --List-done-color: hsl(233, 11%, 84%);   
+  --Footer-color: hsl(236, 9%, 61%); 
+  --List-active-color: hsl(235, 19%, 35%);
+  --Bright-Blue: hsl(220, 98%, 61%);
+  --Box-shadow: hsl(240, 1%, 73%);
+}
+body{
+  background-color: var(--Background-color);
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  background-size: 100% 300px;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+.App{
+  width: fit-content;
+  & > div{
+    margin-top: 150px;
+  }
+}
+button{
+  cursor: pointer;
+}
+header{
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0rem;
+  h1{
+    text-transform: uppercase;
+    letter-spacing: .6rem;
+    font-size: 2.5rem;
+  }
+  img{
+    cursor: pointer;
+  }
+}
+form{
+  margin-top: 20px;
+  box-shadow: 0 0px 10px 0px var(--Box-shadow);
+}
+ul{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px 0 var(--Box-shadow);
+}
+.cross-btn{
+  opacity: 0;
+}
+.check-btn{
+  background: transparent;
+  border: 1px solid var(--List-active-color);
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  transition: background .2s ease-in-out;
+  img{
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+  }
+  &.active{
+    background: linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+    img{opacity: 1;}
+  }
+}
+li{
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 45px auto 30px;
+  align-items: center;
+  background-color: var(--List-bg-color);
+  padding: 20px 30px;
+  width: 100%;
+  color: var(--List-active-color);
+  border-bottom: 1px solid var(--List-done-color);
+  transition: color .5s ease-in-out;
+  button{
+    width: fit-content;
+    background-color: transparent;
+    color: white;
+    border: 0;
+    cursor: pointer;
+  }
+  &:hover .cross-btn{
+    opacity: 1;
+  }
+  span{
+    text-decoration: none;
+    color: var(--List-active-color);
+    margin-top: 5px;
+  }
+  &.done {
+    span{
+      color: var(--List-done-color);
+      text-decoration: line-through;
+    }
+  }
+  &:last-of-type{
+    border: 0;
+  }
+}
+input{
+  width: 100%;
+  border: 0;
+  padding: 18px 30px;
+  font-size: 1.1rem;
+  background-color: var(--List-bg-color);
+  color: var(--List-active-color);
+  outline: none;
+}
+#error{
+  border-top: 1px solid var(--List-done-color);
+  background-color: var(--List-bg-color);
+  width: 100%;
+  display: inline-block;
+  padding: 15px 30px;
+  color: red;
+}
+.footer{
+  background-color: var(--List-bg-color);
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-areas: 'items buttons clearButton';
+  gap: 20px;
+  justify-content: center;
+  border-top: 1px solid var(--List-done-color);
+  box-shadow: 0 10px 10px 1px var(--Box-shadow);
+  span{
+    width: fit-content;
+    grid-area: items;
+    font-size: .9rem;
+    color: var(--Footer-color);
+  }
+  button{
+    width: fit-content;
+    background-color: transparent;
+    border: 0;
+    font-size: .9rem;
+    color: var(--Footer-color);
+  }
+  div{
+    display: flex;
+    gap: 15px;
+    margin: 0 auto;
+    grid-area: buttons;
+    button{
+      &.active{
+        color: var(--Bright-Blue);
+      }
+    }
+  }
+  & > button{
+    float: right;
+    grid-area: clearButton;
+  }
+}
+
+@media (min-width: 900px) {
+  header{
+    gap: 25rem;
+  }
+  .footer{
+    grid-template-areas: 'items . buttons . clearButton';
+    gap: 50px;
+  }
+  li{
+    grid-template-columns: 70px auto 30px;
+  }
+}
+@media (max-width: 500px) {
+  .footer{
+    grid-template-areas: 'items . buttons . clearButton';
+    gap: 50px;
+    position: relative;
+    div{
+      position: absolute;
+      top: 80px;
+      background-color: var(--List-bg-color);
+      width: 100%;
+      left: 0;
+      grid-area: none;
+      justify-content: center;
+      padding: 18px 0;
+    }
+  }
+}
