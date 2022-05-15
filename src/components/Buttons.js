@@ -14,7 +14,7 @@ const Buttons = ({setFilter}) => {
         filterButtons[i].classList.add('active');
     }
     return (
-        <div className="footer">
+        <footer className="footer">
             <span>{todos.filter((el, i) => {if (el.isCompleted) { return; } return el; }).length} items left</span>
             <div>
                 <button value='ALL' onClick={() => filterHandler('ALL', 0)} className='filter-btn active'>All</button>
@@ -22,7 +22,7 @@ const Buttons = ({setFilter}) => {
                 <button value='COMPLETED' onClick={() => filterHandler('COMPLETED', 2)} className='filter-btn'>Completed</button>
             </div>
             <button onClick={() => dispatch(deleteCompleted)}>Clear Completed</button>
-        </div>
+        </footer>
     )
 }
 export default Buttons;

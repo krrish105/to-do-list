@@ -27,7 +27,7 @@ export default function App() {
       <div>
         <header>
           <h1>Todo</h1>
-          <img src={themeIcons[0]} width='25' height='25' onClick={(e) => changeTheme(e)} id="theme-icon"></img>
+          <img src={themeIcons[0]} width='25' height='25' onClick={(e) => changeTheme(e)} id="theme-icon" alt='change theme'></img>
         </header>
         <Form task = {task} setTask={handleChange}/>
         <ToDoList filter={filter}/>
